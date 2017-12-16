@@ -13,7 +13,7 @@ var players = [];
 function UpdatePlayers() {
   var top5Players = players.filter(player => player.name !== undefined)
   top5Players.sort(function(a,b) {
-    return a.score - b.score;
+    return b.score - a.score;
   });
   top5Players = top5Players.slice(0,5);
   io.emit('update-players', top5Players);
