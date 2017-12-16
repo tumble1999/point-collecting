@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello World</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/client.js" charset="utf-8"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+      </ul> -->
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul> -->
+    </div>
+  </nav>
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-8">
+        <!-- User Info -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h1 id="player-name">NAME</h1>
+            <div class="jumbotron">
+              <h1 id="player-score">SCORE</h1>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <div class="progress">
+                  <div id="add-score-progress" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0"
+                  aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <button id="add-score-button" type="button" class="btn btn-primary btn-lg">Add Score</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  		</div>
+  		<div class="col-md-4">
+        <!-- Leaderboard -->
+        <div class="panel panel-default">
+          <div class="panel-heading">Leaderboard</div>
+          <div class="panel-body">
+            <ul id="leaderboard" class="list-group">
+              <li class="list-group-item">NAME <span class="badge">SCORE</span></li>
+              <li class="list-group-item">NAME <span class="badge">SCORE</span></li>
+              <li class="list-group-item">NAME <span class="badge">SCORE</span></li>
+              <li class="list-group-item">NAME <span class="badge">SCORE</span></li>
+              <li class="list-group-item">NAME <span class="badge">SCORE</span></li>
+            </ul>
+          </div>
+        </div>
+  		</div>
+  	</div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="server-connecting" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Connecting...</h4>
+        </div>
+        <div class="modal-body">
+          <p>Connecting to server....</p>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- Modal -->
+  <div class="modal fade" id="enter-name" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter Name</h4>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="new-username-text" type="text" class="form-control" name="name" placeholder="Username">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="new-username-button" type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-off"></span> Enter</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>
